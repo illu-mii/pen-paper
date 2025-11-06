@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pen&Paper</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <nav class="top-banner">
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="about.html"> About Us </a></li>
+                <li><a href="contact.html"> Contact Us </a></li>
+                <li><a href="features.html"> Features </a></li>
+                <li><a href="login.html"> Log In </a></li>
+            </ul>
+        </nav>
+
+
+        <h1> Budget Tracker </h1>
+        <div class="section-expenses">
+            <h2> Expenses </h2>
+            <table id="expenses-table">
+                <tbody>
+                <tr><td> Food </td><td><input type="number" class="expenses-input"></td></tr>
+                <tr><td> Gas </td><td><input type="number" class="expenses-input"></td></tr>
+                <tr><td> Rent </td><td><input type="number" class="expenses-input"></td></tr>
+                <tr class="total"><td> Total </td><td id="expenses-total">0</td></tr>
+                </tbody>
+            </table>
+            <button onclick="addRow('expenses')"> + Add Expenses </button>
+        </div>
+
+
+        <div class="section-income">
+            <h2>Income</h2>
+            <table id="income-table">
+                <tbody>
+                <tr><td> Paycheck </td><td><input type="number" class="income-input"></td></tr>
+                <tr><td> Gifts </td><td><input type="number" class="income-input"></td></tr>
+                <tr><td> Tips </td><td><input type="number" class="income-input"></td></tr>
+                <tr class="total"><td> Total </td><td id="income-total">0</td></tr>
+                </tbody>
+            </table>
+            <button onclick="addRow('income')"> + Add Income </button>
+        </div>
+
+
+        <div class="section-savings">
+            <h2> Savings </h2>
+            <table id="savings-table">
+                <tbody>
+                <tr><td> College </td><td><input type="number" class="savings-input"></td></tr>
+                <tr><td> Car </td><td><input type="number" class="savings-input"></td></tr>
+                <tr><td> Down Payment </td><td><input type="number" class="savings-input"></td></tr>
+                <tr class="total"><td> Total </td><td id="savings-total">0</td></tr>
+                </tbody>
+            </table>
+            <button onclick="addRow('savings')"> + Add Savings </button>
+        </div>
+
+        <div class="section-debt">
+            <h2> Debt </h2>
+            <table id="debt-table">
+                <tbody>
+                <tr><td> Soutwest Rewards </td><td><input type="number" class="debt-input"></td></tr>
+                <tr class="total"><td> Total </td><td id="debt-total">0</td></tr>
+                </tbody>
+            </table>
+            <button onclick="addRow('debt')"> + Add Debt </button>
+        </div>
+
+        <div class="section-summary">
+            <h2> Summary </h2>
+            <table id="summary-table">
+                <tbody>
+                <tr><td> Income</td> <td id="summary-income">0</td></tr>
+                <tr><td> Savings</td> <td id="summary-savings">0</td></tr>
+                <tr><td> Expenses</td> <td id="summary-expenses">0</td></tr>
+                <tr><td> Debt</td> <td id="summary-debt">0</td></tr>
+                <tr class="total"><td> Remaining </td><td id="summary-remaining">0</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
