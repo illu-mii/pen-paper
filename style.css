@@ -44,6 +44,11 @@
     border-radius: 4px;
 }
 
+.logo-link{
+    display: inline-block;
+    cursor: pointer;
+}
+
 body{
 background-image:url("AdobeStock_61200666.jpeg");
 background-repeat:repeat;
