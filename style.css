@@ -1,0 +1,127 @@
+
+
+
+
+/* Universal Top Banner Styles - Applies to ALL pages */
+.top-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.243);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+}
+
+/* Logo Styles */
+.logo {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 4px;
+}
+
+body{
+background-image:url("AdobeStock_61200666.jpeg");
+background-repeat:repeat;
+     background-size:130% auto;
+    background-position: 100% 20%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    font-style: "Amatic SC";
+
+
+}
+
+
+/*login page stuff*/
+body.login-page {
+    background-image: url("https://i.etsystatic.com/37307182/r/il/287958/4155769518/il_1588xN.4155769518_5xwa.jpg");
+     background-size:100% auto;
+    background-position: 100% 20%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color:black;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+.login-container {
+ text-align: center;
+    transform: translate(35px, 66px);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+button[type="submit"]{
+ border-radius: 20px;
+    
+
+}
+
+
+
+/* Budgeting Styles Section */
+.budgeting-styles {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.budgeting-styles h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.budget-style {
+    margin-bottom: 1.5rem;
+}
+
+.budget-style h3 {
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.budget-style p {
+    line-height: 1.6;
+    color: #000000;
+}
+
+.back-home {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.back-home:hover {
+    text-decoration: underline;
+}
+
