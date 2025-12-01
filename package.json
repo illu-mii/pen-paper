@@ -14,5 +14,13 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illu-mii/pen-paper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/illu-mii/pen-paper/issues"
+  },
+  "homepage": "https://github.com/illu-mii/pen-paper#readme"
 }

@@ -26,13 +26,23 @@
             <h2> Expenses </h2>
             <table id="expenses-table">
                 <tbody>
-                <tr><td> Food </td><td><input type="number" class="expenses-input"></td></tr>
-                <tr><td> Gas </td><td><input type="number" class="expenses-input"></td></tr>
-                <tr><td> Rent </td><td><input type="number" class="expenses-input"></td></tr>
-                <tr class="total"><td> Total </td><td id="expenses-total">0</td></tr>
+                <tr><td> Food </td>
+                    <td><input type="number" class="expenses-input"></td>
+                    <td><button onclick="addToTotal(this, 'expenses')">+</button></td>
+                </tr>
+                <tr><td> Gas </td>
+                    <td><input type="number" class="expenses-input"></td>
+                    <td><button onclick="addToTotal(this, 'expenses')">+</button></td>
+                </tr>
+                <tr><td> Rent </td>
+                    <td><input type="number" class="expenses-input"></td>
+                    <td><button onclick="addToTotal(this, 'expenses')">+</button></td>
+                </tr>
+                <tr class="total"><td> Total </td><td id="expenses-total">0</td><td></td></tr>
                 </tbody>
             </table>
             <button onclick="addRow('expenses')"> + Add Expenses </button>
+            <button onclick="manualTotal('expenses')"> Calculate Expenses Total </button>
         </div>
 
 
@@ -40,13 +50,22 @@
             <h2>Income</h2>
             <table id="income-table">
                 <tbody>
-                <tr><td> Paycheck </td><td><input type="number" class="income-input"></td></tr>
-                <tr><td> Gifts </td><td><input type="number" class="income-input"></td></tr>
-                <tr><td> Tips </td><td><input type="number" class="income-input"></td></tr>
-                <tr class="total"><td> Total </td><td id="income-total">0</td></tr>
+                <tr><td> Paycheck </td>
+                    <td><input type="number" class="income-input"></td>
+                    <td><button onclick="addToTotal(this, 'income')">+</button></td>
+                </tr>
+                <tr><td> Gifts </td>
+                    <td><input type="number" class="income-input"></td>
+                    <td><button onclick="addToTotal(this, 'income')">+</button></td>
+                </tr>
+                <tr><td> Tips </td><td><input type="number" class="income-input"></td>
+                    <td><button onclick="addToTotal(this, 'income')">+</button></td>
+                    </tr>
+                <tr class="total"><td> Total </td><td id="income-total">0</td><td></td></tr>
                 </tbody>
             </table>
             <button onclick="addRow('income')"> + Add Income </button>
+            <button onclick="manualTotal('income')"> Calculate Income Total </button>
         </div>
 
 
@@ -54,24 +73,34 @@
             <h2> Savings </h2>
             <table id="savings-table">
                 <tbody>
-                <tr><td> College </td><td><input type="number" class="savings-input"></td></tr>
-                <tr><td> Car </td><td><input type="number" class="savings-input"></td></tr>
-                <tr><td> Down Payment </td><td><input type="number" class="savings-input"></td></tr>
-                <tr class="total"><td> Total </td><td id="savings-total">0</td></tr>
+                <tr><td> College </td><td><input type="number" class="savings-input"></td>
+                    <td><button onclick="addToTotal(this, 'savings')">+</button></td>
+                    </tr>
+                <tr><td> Car </td><td><input type="number" class="savings-input"></td>
+                    <td><button onclick="addToTotal(this, 'savings')">+</button></td>
+                </tr>
+                <tr><td> Down Payment </td><td><input type="number" class="savings-input"></td>
+                    <td><button onclick="addToTotal(this, 'savings')">+</button></td>
+                </tr>
+                <tr class="total"><td> Total </td><td id="savings-total">0</td><td></td></tr>
                 </tbody>
             </table>
             <button onclick="addRow('savings')"> + Add Savings </button>
+            <button onclick="manualTotal('savings')"> Calculate Savings Total </button>
         </div>
 
         <div class="section-debt">
             <h2> Debt </h2>
             <table id="debt-table">
                 <tbody>
-                <tr><td> Soutwest Rewards </td><td><input type="number" class="debt-input"></td></tr>
-                <tr class="total"><td> Total </td><td id="debt-total">0</td></tr>
+                <tr><td> Southwest Rewards </td><td><input type="number" class="debt-input"></td>
+                    <td><button onclick="addToTotal(this, 'debt')">+</button></td>
+                </tr>
+                <tr class="total"><td> Total </td><td id="debt-total">0</td><td></td></tr>
                 </tbody>
             </table>
             <button onclick="addRow('debt')"> + Add Debt </button>
+            <button onclick="manualTotal('debt')"> Calculate Debt Total </button>
         </div>
 
         <div class="section-summary">
@@ -85,6 +114,7 @@
                 <tr class="total"><td> Remaining </td><td id="summary-remaining">0</td></tr>
                 </tbody>
             </table>
+            <button onclick="clearAll()"> Clear All </button>
         </div>
 
         <script src="script.js"></script>

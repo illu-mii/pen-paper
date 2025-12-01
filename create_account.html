@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Create Account </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="login-page">
+        <nav class="top-banner">
+            <a href="index.html" class="logo-link">
+            <div class="logo"></div>
+            </a>
+            <ul class="nav-links">
+                <li class="links"><a href="about.html"> About Us </a></li>
+                <li class="links"><a href="contact.html"> Contact Us </a></li>
+                <li class="links"><a href="features.html"> Features </a></li>
+                <li class="links"><a href="login.html"> Log In </a></li>
+            </ul>
+        </nav>
+
+        <div class="login-container">
+            <h1> Create Account </h1>
+            <p> Please fill in the fields below </p>
+
+            <form id="create-form">
+                <label for="new-username"> Username </label><br>
+                <input type="text" id="new-username" required><br><br>
+
+                <label for="new-password"> Password </label><br>
+                <input type="password" id="new-password" required><br><br>
+
+                <button type="submit"> Create Account </button>
+            </form>
+
+            <button onclick="window.location.href='login.html'" class="create-btn"> Back to Login </button>
+        </div>
+
+        <script>
+            document.getElementById('create-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const username = document.getElementById('new-username').value;
+                const password = document.getElementById('new-password').value;
+
+                try {
+                    const res = await fetch('/create', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, password })
+                    });
+
+                    const data = await res.json();
+
+                    if (data.success) {
+                        alert('Account created successfully! Please log in.');
+                        window.location.href = 'login.html';
+                    } else {
+                        alert('Error creating account: ' + data.message);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred while creating the account.');
+                }
+            });
+        </script>
+
+    </body>
+</html>
