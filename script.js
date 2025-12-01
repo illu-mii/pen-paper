@@ -57,7 +57,6 @@ function addRow(section) {
 
     const nameCell = document.createElement('td');
     const valueCell = document.createElement('td');
-    const buttonCell = document.createElement('td');
 
     const labelInput = document.createElement('input');
     labelInput.type = 'text';
@@ -69,19 +68,18 @@ function addRow(section) {
     numberInput.value = "0";
     numberInput.className = `${section}-input`;
 
-    const addButton = document.createElement('button');
-    addButton.textContent = '+';
-    addButton.onclick = function() { addToTotal(this, section); };
+
 
     nameCell.appendChild(labelInput);
     valueCell.appendChild(numberInput);
-    buttonCell.appendChild(addButton);
+    
 
     newRow.appendChild(nameCell);
     newRow.appendChild(valueCell);
-    newRow.appendChild(buttonCell);
+   
 
     tbody.insertBefore(newRow, totalRow);
+    attachInputListeners();
     updateSummary();
 }
 
@@ -94,7 +92,7 @@ function checkBudgetWarning(section, total) {
 
     if (income <= 0) return;
 
-    if (totalExpenses >= income * 0.9 && totalExpenses < income) {
+    if (totalExpenses >= income * 0.9 && totalExpenses <= income) {
         alert('Warning: Expenses are at least 90% of income! Consider reducing expenses.');
     }
 
@@ -102,6 +100,7 @@ function checkBudgetWarning(section, total) {
         alert("You've exceeded your income budget!");
     }
 }
+
 
 function clearAll() {
     document.querySelectorAll('input[type="number"]').forEach(input => input.value = 0);
@@ -113,3 +112,12 @@ function clearAll() {
         document.getElementById(id).textContent = '0';
     });
 }
+
+document.addEventListener("input", () => {
+    manualTotal('income');
+    manualTotal('savings');
+    manualTotal('debt');
+    manualTotal('expenses');
+});
+
+
