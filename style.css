@@ -37,11 +37,9 @@
 }
 
 /* Logo Styles */
-.logo {
-    width: 50px;
-    height: 50px;
-    background-color: #007bff;
-    border-radius: 4px;
+.logo-img {
+    height: 60px;
+    width: auto;
 }
 
 .logo-link{
@@ -51,12 +49,11 @@
 
 body{
 background-image:url("AdobeStock_61200666.jpeg");
-background-repeat:repeat;
-     background-size:130% auto;
-    background-position: 100% 20%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
-    font-style: "Amatic SC";
+    background-attachment: fixed;
+    font-family: "Amatic SC", cursive;
 
 
 }
@@ -75,9 +72,10 @@ body.login-page {
     min-height: 100vh;
 }
 .login-container {
- text-align: center;
+    text-align: center;
     transform: translate(35px, 66px);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
 button[type="submit"]{
  border-radius: 20px;
@@ -129,4 +127,3 @@ button[type="submit"]{
 .back-home:hover {
     text-decoration: underline;
 }
-
