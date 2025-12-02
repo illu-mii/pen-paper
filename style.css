@@ -37,23 +37,23 @@
 }
 
 /* Logo Styles */
-.logo-img {
-    height: 60px;
-    width: auto;
-}
-
-.logo-link{
-    display: inline-block;
-    cursor: pointer;
-}
-
-body{
-background-image:url("AdobeStock_61200666.jpeg");
-    background-size: cover;
+.logo {
+    width: 100px;
+    height: 80px;
+    background-image: url("logo.png");
+    background-size: contain;     /* keeps full image visible */
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: "Amatic SC", cursive;
+    border-radius: 6px;
+}
+body{
+background-image:url("AdobeStock_61200666.jpeg");
+background-repeat:repeat;
+     background-size:130% auto;
+    background-position: 100% 20%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    font-style: "Amatic SC";
 
 
 }
@@ -63,19 +63,26 @@ background-image:url("AdobeStock_61200666.jpeg");
 body.login-page {
     background-image: url("https://i.etsystatic.com/37307182/r/il/287958/4155769518/il_1588xN.4155769518_5xwa.jpg");
      background-size:100% auto;
-    background-position: 100% 20%;
+    background-position: 100% 18%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color:black;
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    overflow: hidden;
 }
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+
 .login-container {
-    text-align: center;
+ text-align: center;
     transform: translate(35px, 66px);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
 }
 button[type="submit"]{
  border-radius: 20px;
@@ -126,4 +133,110 @@ button[type="submit"]{
 
 .back-home:hover {
     text-decoration: underline;
+}
+/* Homepage specific styles - Only affects index.html */
+body:has(.section-expenses) {
+    background-repeat: repeat-y;
+    display: block;
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Container for the main content boxes in horizontal row */
+body:has(.section-expenses) .main-content {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* All boxes in a horizontal row */
+body:has(.section-expenses) .section-expenses,
+body:has(.section-expenses) .section-income,
+body:has(.section-expenses) .section-savings,
+body:has(.section-expenses) .section-debt {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+    flex: 0 0 auto;
+}
+
+/* Summary box below the horizontal row */
+body:has(.section-expenses) .section-summary {
+    background-color: rgba(52, 152, 219, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+    height: fit-content;
+    width: fit-content;
+    display: block;
+}
+
+/* Title styling */
+body:has(.section-expenses) #title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Downsized text for homepage sections */
+body:has(.section-expenses) .section-expenses h2,
+body:has(.section-expenses) .section-income h2,
+body:has(.section-expenses) .section-savings h2,
+body:has(.section-expenses) .section-debt h2,
+body:has(.section-expenses) .section-summary h2 {
+    font-size: 0.9rem;
+    margin: 0 0 0.3rem 0;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Table and input styles */
+body:has(.section-expenses) .section-expenses table,
+body:has(.section-expenses) .section-income table,
+body:has(.section-expenses) .section-savings table,
+body:has(.section-expenses) .section-debt table,
+body:has(.section-expenses) .section-summary table {
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+    width: auto;
+}
+
+body:has(.section-expenses) .section-expenses td,
+body:has(.section-expenses) .section-income td,
+body:has(.section-expenses) .section-savings td,
+body:has(.section-expenses) .section-debt td,
+body:has(.section-expenses) .section-summary td {
+    padding: 0.1rem 0.2rem;
+}
+
+body:has(.section-expenses) .section-expenses input[type="number"],
+body:has(.section-expenses) .section-income input[type="number"],
+body:has(.section-expenses) .section-savings input[type="number"],
+body:has(.section-expenses) .section-debt input[type="number"] {
+    padding: 0.1rem 0.2rem;
+    font-size: 0.7rem;
+    height: 1.2rem;
+    width: 80px;
+}
+
+body:has(.section-expenses) .section-expenses button,
+body:has(.section-expenses) .section-income button,
+body:has(.section-expenses) .section-savings button,
+body:has(.section-expenses) .section-debt button {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+    height: 1.5rem;
 }
