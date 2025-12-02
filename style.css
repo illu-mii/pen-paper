@@ -37,15 +37,11 @@
 }
 
 /* Logo Styles */
-.logo {
-    width: 100px;
-    height: 80px;
-    background-image: url("logo.png");
-    background-size: contain;     /* keeps full image visible */
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 6px;
+.logo-img {
+    height: 60px;
+    width: auto;
 }
+
 body{
 background-image:url("AdobeStock_61200666.jpeg");
 background-repeat:repeat;
