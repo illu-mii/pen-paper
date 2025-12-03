@@ -86,6 +86,12 @@ button[type="submit"]{
 
 }
 
+.login-container .create-btn {
+    border-radius: 20px;
+    margin-top: 1rem; /* Space above this button */
+    cursor: pointer;
+}
+
 
 
 /* Budgeting Styles Section */
@@ -204,7 +210,7 @@ body:has(.section-expenses) .section-income table,
 body:has(.section-expenses) .section-savings table,
 body:has(.section-expenses) .section-debt table,
 body:has(.section-expenses) .section-summary table {
-    font-size: 0.7rem;
+    font-size: 1rem;
     margin-bottom: 0.3rem;
     width: auto;
 }
@@ -214,7 +220,7 @@ body:has(.section-expenses) .section-income td,
 body:has(.section-expenses) .section-savings td,
 body:has(.section-expenses) .section-debt td,
 body:has(.section-expenses) .section-summary td {
-    padding: 0.1rem 0.2rem;
+    padding: 0.2rem 0.3rem;
 }
 
 body:has(.section-expenses) .section-expenses input[type="number"],
@@ -222,9 +228,9 @@ body:has(.section-expenses) .section-income input[type="number"],
 body:has(.section-expenses) .section-savings input[type="number"],
 body:has(.section-expenses) .section-debt input[type="number"] {
     padding: 0.1rem 0.2rem;
-    font-size: 0.7rem;
-    height: 1.2rem;
-    width: 80px;
+    font-size: 1rem;
+    height: 2rem;
+    width: 120px;
 }
 
 body:has(.section-expenses) .section-expenses button,
@@ -232,9 +238,9 @@ body:has(.section-expenses) .section-income button,
 body:has(.section-expenses) .section-savings button,
 body:has(.section-expenses) .section-debt button {
     padding: 0.2rem 0.4rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
     margin-top: 0.2rem;
-    height: 1.5rem;
+    height: 2.2rem;
 }
 /* About Us Page Specific Styles */
 body:not(.login-page) {
@@ -243,7 +249,7 @@ body:not(.login-page) {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: "Amatica SC", cursive;
+    font-family: "Amatic SC", cursive;
     min-height: 100vh;
 }
 
@@ -430,4 +436,29 @@ body:not(.login-page) > a[href="index.html"]:hover {
 /* Add smooth scroll */
 html {
     scroll-behavior: smooth;
+}
+
+.btn {
+    padding: 0.2rem 0.4rem;
+    font-size: 1rem;
+    height: 2.2rem;
+    margin-top: 0.2rem;
+    background-color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.9);
+    transform: translateY(-1px);
+}
+
+.logout-btn{
+    margin-left: auto;
+    margin-right: 20px;
+    display: none;
 }
