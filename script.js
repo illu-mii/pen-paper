@@ -1,8 +1,12 @@
+
 function sumInputs(selector) {
     return [...document.querySelectorAll(selector)]
         .map(input => parseFloat(input.value) || 0)
         .reduce((a, b) => a + b, 0);
 }
+
+let warned90 = false;
+let warnedOver100 = false;
 
 // Lock a value and visually mark it
 function addToTotal(button, section) {
@@ -28,7 +32,6 @@ function manualTotal(section) {
     const total = sumInputs(`.${section}-input`);
     document.getElementById(`${section}-total`).textContent = total.toFixed(2);
     updateSummary();
-    checkBudgetWarning(section);
 }
 
 // Update summary section
@@ -84,23 +87,31 @@ function addRow(section) {
 }
 
 // Budget warnings
-function checkBudgetWarning(section, total) {
-    if (section !== "expenses") return;
+function checkBudgetWarning() {
 
     const totalExpenses = parseFloat(document.getElementById('expenses-total').textContent) || 0;
     const income = parseFloat(document.getElementById('income-total').textContent) || 0;
 
     if (income <= 0) return;
 
-    if (totalExpenses >= income * 0.9 && totalExpenses <= income) {
-        alert('Warning: Expenses are at least 90% of income! Consider reducing expenses.');
-    }
+    if (totalExpenses >= income * 0.9 && totalExpenses <= income ) {
+        if (!warned90) {
+            alert('Warning: Expenses are at least 90% of income!');
+            warned90 = true;
+        }
+    } else {
+        warned90 = false;
+    }   
 
     if (totalExpenses > income) {
-        alert("You've exceeded your income budget!");
+        if (!warnedOver100) {
+            alert('Alert: Expenses have exceeded income!');
+            warnedOver100 = true;
+        }
+    } else {
+        warnedOver100 = false;
     }
 }
-
 
 function clearAll() {
     document.querySelectorAll('input[type="number"]').forEach(input => input.value = 0);
@@ -115,9 +126,12 @@ function clearAll() {
 
 document.addEventListener("input", () => {
     manualTotal('income');
+    manualTotal('expenses');
     manualTotal('savings');
     manualTotal('debt');
-    manualTotal('expenses');
+
+    updateSummary();
+    checkBudgetWarning();
 });
 
 
