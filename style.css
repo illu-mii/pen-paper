@@ -86,7 +86,7 @@ button[type="submit"]{
 
 }
 
-.login-container .create-btn {
+.login-container .create-btn{
     border-radius: 20px;
     margin-top: 1rem; /* Space above this button */
     cursor: pointer;
@@ -457,8 +457,83 @@ html {
     transform: translateY(-1px);
 }
 
-.logout-btn{
+.logout-btn {
     margin-left: auto;
     margin-right: 20px;
     display: none;
 }
+
+.delete-btn {
+    background-color: rgba(200, 200, 200, 0.45);
+    color: #000;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.custom-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 999;
+    padding-top: 20px;
+}
+
+.custom-popup {
+    background-color: rgba(52, 152, 219, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px 25px;
+    max-width: 300px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.popup-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.popup-confirm,
+.popup-cancel {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-confirm {
+background-color: rgba(200, 200, 200, 0.45);
+color: #000;
+
+
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.popup-cancel {
+background-color: rgba(200, 200, 200, 0.45);
+color: #000;
+
+
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+
+

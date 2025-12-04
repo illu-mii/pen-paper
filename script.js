@@ -30,6 +30,65 @@ function updateSummary() {
     document.getElementById('summary-remaining').textContent = remaining.toFixed(2);
 }
 
+// --- ADD ROW ---
+function addRow(section) {
+    const table = document.getElementById(`${section}-table`);
+    if (!table) return;
+
+    const tbody = table.tBodies[0];
+    const totalRow = tbody.querySelector('.total');
+
+    const newRow = document.createElement('tr');
+
+    // --- LABEL CELL ---
+    const labelCell = document.createElement('td');
+    const labelInput = document.createElement('input');
+    labelInput.type = 'text';
+    labelInput.placeholder = 'New item';
+    labelInput.className = "label-input";
+    labelCell.appendChild(labelInput);
+
+    // --- VALUE CELL ---
+    const valueCell = document.createElement('td');
+    const numberInput = document.createElement('input');
+    numberInput.type = 'number';
+    numberInput.value = "0";
+    numberInput.className = `${section}-input`;
+    valueCell.appendChild(numberInput);
+
+    // --- DELETE BUTTON CELL ---
+    const deleteCell = document.createElement('td');
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "Delete Row";
+    deleteBtn.className = "btn delete-btn";
+
+    deleteBtn.addEventListener('click', () => {
+        showConfirmPopup("Delete this row?", () => {
+        newRow.remove();
+        updateEverything(); // recalc totals, update summary, save
+        });
+    });
+
+    deleteCell.appendChild(deleteBtn);
+
+    // --- BUILD ROW ---
+    newRow.appendChild(labelCell);
+    newRow.appendChild(valueCell);
+    newRow.appendChild(deleteCell);
+
+    // insert row BEFORE total row
+    tbody.insertBefore(newRow, totalRow);
+
+    // attach listener to new number input
+    numberInput.addEventListener('input', handleChange);
+
+    // Insert row into logic
+    updateEverything();
+}
+
+
+
+
 // --- ALERTS / WARNINGS ---
 function showBanner(msg, level='info') {
     let banner = document.getElementById('budget-banner');
@@ -137,3 +196,30 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.querySelectorAll('input[type="number"]').forEach(input=>input.addEventListener('input', handleChange));
     loadData();
 });
+
+function showConfirmPopup(message, onConfirm) {
+    const popup = document.createElement("div");
+    popup.className = "custom-popup-overlay";
+    popup.innerHTML = `
+        <div class="custom-popup">
+            <p>${message}</p>
+            <div class="popup-buttons">
+                <button class="popup-confirm">Yes</button>
+                <button class="popup-cancel">No</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    popup.querySelector(".popup-confirm").addEventListener("click", () => {
+        popup.remove();
+        onConfirm();     // run callback
+    });
+
+    popup.querySelector(".popup-cancel").addEventListener("click", () => {
+        popup.remove();
+    });
+}
+
+
